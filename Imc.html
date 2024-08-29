@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Conversor</title>
+</head>
+
+<body>
+  <button type="button" id="botao"> Calcular </button>
+  <button type="button" id="limpar"> Limpar </button>
+
+  <img
+    src="https://img.freepik.com/vetores-premium/um-jovem-triste-a-medir-a-cintura-com-uma-fita-metrica_98402-177787.jpg?semt=ais_hybrid"
+    alt="magro" id="magro" width="250" height="250">
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL-eA7dka8k73C2Kul-loXrJD4opUqnjPx1euafWn2lE2R1J_ZjUBKYbgAgH85WU-YpYk&usqp=CAU"
+    alt="normal" id="normal" width="250" height="250">
+  <img
+    src="https://img.freepik.com/vetores-gratis/personagem-de-desenho-animado-de-homem-com-excesso-de-peso_1308-134504.jpg"
+    alt="gordo" id="gordo" width="250" height="250">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById("magro").style.display = "none";
+      document.getElementById("normal").style.display = "none";
+      document.getElementById("gordo").style.display = "none";
+
+      function mostrarImagem() {
+        // Pede o peso e altura do usuário
+        var peso = parseFloat(prompt("Digite seu peso:"));
+        var altura = parseFloat(prompt("Digite sua altura:"));
+
+        // Calcula o IMC
+        var imc = peso / (altura * altura);
+
+        // Mostra a imagem correspondente com base no IMC
+        if (imc < 18.5) {
+          document.getElementById("magro").style.display = "block";
+          alert("Você está magro");
+        } else if (imc >= 18.5 && imc <= 24.9) {
+          document.getElementById("normal").style.display = "block";
+          alert("Você está com um peso bom");
+        } else if (imc >= 25) {
+          document.getElementById("gordo").style.display = "block";
+          alert("Você está gordinho");
+        }
+      }
+
+      // Função para limpar as imagens
+      function limpar() {
+        document.getElementById("magro").style.display = "none";
+        document.getElementById("normal").style.display = "none";
+        document.getElementById("gordo").style.display = "none";
+      }
+
+      // Associa as funções aos botões
+      document.getElementById("botao").addEventListener('click', mostrarImagem);
+      document.getElementById("limpar").addEventListener('click', limpar);
+    });
+  </script>
+</body>
+
+</html>
